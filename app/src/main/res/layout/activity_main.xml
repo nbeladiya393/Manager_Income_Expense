@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation"
         android:layout_gravity="bottom"
-
         />
 
 </LinearLayout>

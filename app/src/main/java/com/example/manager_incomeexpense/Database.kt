@@ -1,8 +1,10 @@
 package com.example.manager_incomeexpense
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.manager_incomeexpense.Model.TransModel
 
 class Database(
     context: Context?
@@ -23,5 +25,22 @@ class Database(
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
 
+
+    }
+
+    fun addTrans(transModel: TransModel){
+
+        var db = writableDatabase
+        var values = ContentValues().apply {
+            transModel.apply {
+                put(AMOUNT,amount)
+                put(CATEGORY,category)
+                put(NOTE,note)
+                put(IS_EXPENSE,isExpense)
+
+            }
+        }
+
+        db.insert(TABLE_NAME, null, values)
     }
 }
