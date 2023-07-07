@@ -7,11 +7,18 @@
 
     tools:context=".MainActivity">
 
+
+    <FrameLayout
+        android:id="@+id/fragFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation"
-        android:layout_gravity="bottom"
-        />
+        android:layout_gravity="bottom"/>
 
 </LinearLayout>

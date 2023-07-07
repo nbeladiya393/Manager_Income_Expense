@@ -2,4 +2,11 @@
     <string name="app_name">Manager_Income &amp; Expense</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="note_please_do_select_the_appropriate_option_from_income_and_expense_button_to_be_listed_accordingly">NOTE : Please do select the appropriate option from \'INCOME\' and \'EXPENSE\' button to be listed accordingly</string>
+    <string name="submit">SUBMIT</string>
+    <string name="enter_note">Enter Note</string>
+    <string name="enter_category">Enter Category</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="expense">EXPENSE</string>
+    <string name="income">INCOME</string>
 </resources>
