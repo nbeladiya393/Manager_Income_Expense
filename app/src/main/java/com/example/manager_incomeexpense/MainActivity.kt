@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.manager_incomeexpense.databinding.ActivityMainBinding
 import com.example.manager_incomeexpense.fragment.addTransaction
+import com.example.manager_incomeexpense.fragment.transaction_listFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -20,15 +21,21 @@ class MainActivity : AppCompatActivity() {
         binding.bottom.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener{
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-
                 when(item.itemId){
 
                     R.id.add->{
                         loadFragment(addTransaction())
                     }
 
-                }
+                    R.id.list->{
+                        loadFragment(transaction_listFragment())
+                    }
 
+                    R.id.home->{
+                        loadFragment(Home_fragment())
+                    }
+
+                }
 
                 return true
             }
@@ -42,6 +49,5 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.fragFrame,fragment)
             .commit()
-
     }
 }

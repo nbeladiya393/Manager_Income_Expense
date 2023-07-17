@@ -18,6 +18,7 @@ import com.example.manager_incomeexpense.databinding.TransItemBinding
 import java.util.ArrayList
 
 @Suppress("UNREACHABLE_CODE")
+
 class TransListAdapter(update: (TransModel) -> Unit): RecyclerView.Adapter<TransListAdapter.TransListHolder>() {
 
     var update = update
@@ -36,16 +37,14 @@ class TransListAdapter(update: (TransModel) -> Unit): RecyclerView.Adapter<Trans
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
 
         return transList.size
     }
 
     override fun onBindViewHolder(holder: TransListHolder, @SuppressLint("RecyclerView") position: Int) {
-        TODO("Not yet implemented")
 
         holder.binding.apply {
-            transList.get(position).apply {
+              transList.get(position).apply {
                 txtcategory.text = category
                 txtnote.text = note
                 txtamount.text = amount.toString()
@@ -53,14 +52,14 @@ class TransListAdapter(update: (TransModel) -> Unit): RecyclerView.Adapter<Trans
                 if (isExpense == 0 ){
 
                     txtamount.setTextColor(Color.GREEN)
-                    round.setImageResource(R.drawable.income)
+                    round.setImageResource(R.drawable.inomcei)
 
 
 
                 }else{
 
                     txtamount.setTextColor(Color.RED)
-                    round.setImageResource(R.drawable.expense)
+                    round.setImageResource(R.drawable.expensei)
 
                 }
             }
@@ -68,7 +67,7 @@ class TransListAdapter(update: (TransModel) -> Unit): RecyclerView.Adapter<Trans
         holder.itemView.setOnLongClickListener(object : OnLongClickListener{
             override fun onLongClick(p0: View?): Boolean {
 
-                var popupMenu = PopupMenu(context, holder.itemView)
+                val popupMenu = PopupMenu(context, holder.itemView)
                 popupMenu.menuInflater.inflate(R.menu.update,popupMenu.menu)
 
                 popupMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
@@ -80,6 +79,7 @@ class TransListAdapter(update: (TransModel) -> Unit): RecyclerView.Adapter<Trans
                         }
 
                         if (p0?.itemId == R.id.delete) {
+
                         }
 
 

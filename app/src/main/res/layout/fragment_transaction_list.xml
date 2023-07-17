@@ -6,6 +6,12 @@
     tools:context=".fragment.transaction_listFragment">
 
 
+
+
+
+    
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvTransList"
         android:layout_width="match_parent"

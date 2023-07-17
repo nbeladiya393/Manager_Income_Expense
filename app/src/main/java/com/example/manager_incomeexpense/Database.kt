@@ -63,6 +63,24 @@ class Database(
      return transList
     }
 
+    fun updateTrans(transModel: TransModel){
+
+        var db = writableDatabase
+        var values = ContentValues().apply {
+
+            transModel.apply {
+                put(AMOUNT,amount)
+                put(CATEGORY,category)
+                put(NOTE,note)
+                put(IS_EXPENSE,isExpense)
+
+            }
+
+            val values = null
+            db.update(TABLE_NAME,values,"id=${transModel.id}", null)
+        }
+
+    }
 
 
 }

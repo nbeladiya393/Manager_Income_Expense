@@ -9,4 +9,8 @@
     <string name="enter_amount">Enter Amount</string>
     <string name="expense">EXPENSE</string>
     <string name="income">INCOME</string>
+    <string name="category">Category</string>
+    <string name="notes">Notes</string>
+    <string name="_10000">10000</string>
+    <string name="string">+</string>
 </resources>

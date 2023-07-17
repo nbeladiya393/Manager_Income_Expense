@@ -1,6 +1,7 @@
 package com.example.manager_incomeexpense.fragment
 
 import android.app.Dialog
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,6 +21,8 @@ class transaction_listFragment : Fragment() {
     lateinit var database: Database
     lateinit var binding: FragmentTransactionListBinding
     lateinit var adapter : TransListAdapter
+
+    var isExpense = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,13 +34,13 @@ class transaction_listFragment : Fragment() {
 
         database = Database(context)
         transList = database.getTransaction()
-        transList = transList.reversed() as ArrayList<TransModel>
+//        transList = transList.reversed() as ArrayList<TransModel>
 
 
         adapter = TransListAdapter{
 
-            var dialog = Dialog(requireContext())
-            var bind = UpdateDialogueBinding.inflate(layoutInflater)
+            updateDialog(it)
+
 
         }
         adapter.setTrans(transList)
@@ -46,6 +49,43 @@ class transaction_listFragment : Fragment() {
         binding.rcvTransList.adapter = adapter
 
         return binding.root
+
+    }
+
+    private fun updateDialog(transModel: TransModel) {
+
+        var dialog = Dialog(requireContext())
+        var binding = UpdateDialogueBinding.inflate(layoutInflater)
+        dialog.setContentView(binding.root)
+
+        binding.cardincome.setOnClickListener {
+            isExpense = 0
+            binding.cardincome.setCardBackgroundColor(Color.parseColor("#4CAF50"))
+
+        }
+
+        binding.cardexpense.setOnClickListener {
+            isExpense = 1
+            binding.cardexpense.setCardBackgroundColor(Color.parseColor("#F44336"))
+        }
+
+        binding.btnsubmit.setOnClickListener {
+            var amount = binding.edtamount.toString().toInt()
+            var category = binding.edtcategory.toString()
+            var note = binding.edtnote.toString()
+            var model = TransModel(transModel.id,amount, category, note, isExpense)
+            database.updateTrans(model)
+            binding.edtamount.setText("")
+            binding.edtcategory.setText("")
+            binding.edtnote.setText("")
+
+
+        }
+
+
+
+        dialog.show()
+
     }
 
 
